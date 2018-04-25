@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Hello</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#UserLoginForm").on("submit", function(){
+                                                message("wait..");
+
+                                                 document.location =
+                                                 "app://login?email=" +
+                                                 encodeURIComponent( $("#UserEmail").val() ) +
+                                                 "&password=" +
+                                                 encodeURIComponent( $("#UserPassword").val() );
+                                       
+                                                 return false;
+                                                 });
+                          });
+                          
+                          function applyUserInfo(email,pass)
+                          {
+                              $("#UserEmail").val(email);
+                              $("#UserPassword").val(pass);
+                          }
+        
+                        function message(text)
+                        {
+                            $("#Message").text(text);
+                            return true;
+                        }
+        
+        
+                    </script>
+                    </head>
+    <body>
+        <div id="container">
+            <div align="center"
+                style="background: #888888; height: 200px; padding-top: 30px;">
+                <div id="Message"></div>
+            </div>
+            <div class="content">
+                <div class="form-container">
+                    <form action="" id="UserLoginForm" method="post">
+                        <div>
+                            <input class="btn"
+                                name="data[User][email]"
+                                placeholder="e-mail"
+                                type="email"
+                                id="UserEmail"
+                                required="required">
+                        </div>
+                        <div>
+                            <input class="btn"
+                                name="data[User][password]"
+                                placeholder="Password"
+                                type="password"
+                                id="UserPassword"
+                                required="required">
+                        </div>
+                        <div>
+                            <input class="btn btn-blue"
+                                style="margin-top: 20px"
+                                class="blue-button"
+                                type="submit"
+                                value="Log in">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="footer"></div>
+        </div>
+        
+    </body>
+</html>
+
